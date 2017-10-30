@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Háztartási Gépszerviz</string>
+    <string name="jelszo">Jelszó</string>
+    <string name="e_mail">E-mail</string>
+</resources>
