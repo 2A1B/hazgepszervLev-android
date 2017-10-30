@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/form1"
+    tools:context=".LoginActivity">
+
+    <ImageView android:id="@+id/imageView"
+        android:layout_width="176dp"
+        android:layout_height="59dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        />
+
+    <!--  Email Label -->
+    <EditText android:id="@+id/input_email"
+        android:layout_width="288dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginStart="8dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/username"
+        android:ems="10"
+        android:hint="@string/e_mail"
+        android:paddingLeft="55dp"
+        android:textColor="#FFF"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="58dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+
+    <EditText android:id="@+id/input_password"
+        android:inputType="textPassword"
+        android:layout_width="288dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/password"
+        android:ems="10"
+        android:hint="@string/jelszo"
+        android:paddingLeft="55dp"
+        android:textColor="#FFF"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/input_email"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/sign_btn"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/input_password" />
+</android.support.constraint.ConstraintLayout>
