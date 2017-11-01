@@ -43,13 +43,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val id = item.itemId
 
-        if (id == R.id.nav_camera) {
-        } else if (id == R.id.nav_gallery) {
+        when (id) {
+            R.id.nav_camera -> {
+            }
+            R.id.nav_gallery -> {
 
-        } else if (id == R.id.nav_manage) {
+            }
+            R.id.nav_manage -> {
 
-        } else if (id == R.id.logout) {
-
+            }
+            R.id.logout -> {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
         }
 
 
