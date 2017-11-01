@@ -37,8 +37,8 @@ class LoginActivity : AppCompatActivity() {
         val password = input_password.text.toString()
 
         fbAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, { task ->
+            dialog.hide()
             if (task.isSuccessful) {
-                dialog.hide()
                 onLoginSuccess()
             } else {
                 onLoginFailed()

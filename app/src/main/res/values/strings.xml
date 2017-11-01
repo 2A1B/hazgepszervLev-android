@@ -2,4 +2,8 @@
     <string name="app_name">Háztartási Gépszerviz</string>
     <string name="jelszo">Jelszó</string>
     <string name="e_mail">E-mail</string>
+    <string name="kezdolap">Kezdőlap</string>
+    <string name="hibajegyek">Hibajegyek</string>
+    <string name="settings">Beállítások</string>
+    <string name="kilepes">Kilépés</string>
 </resources>
