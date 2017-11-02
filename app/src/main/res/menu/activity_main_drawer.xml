@@ -4,16 +4,16 @@
 
     <group android:checkableBehavior="all">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/menu_home"
             android:icon="@drawable/ic_menu_home"
             android:title="@string/kezdolap" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/menu_jobreports"
             app:actionViewClass="android.widget.TextView"
             android:icon="@drawable/ic_menu_hibajegy"
             android:title="@string/hibajegyek" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/menu_calendar"
             android:icon="@drawable/ic_menu_naptar"
             android:title="Naptár" />
     </group>
