@@ -44,12 +44,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val id = item.itemId
 
         when (id) {
-            R.id.nav_camera -> {
+            R.id.menu_home -> {
             }
-            R.id.nav_gallery -> {
+            R.id.menu_jobreports -> {
 
             }
-            R.id.nav_manage -> {
+            R.id.menu_calendar -> {
+
+            }
+            R.id.settings -> {
 
             }
             R.id.logout -> {
