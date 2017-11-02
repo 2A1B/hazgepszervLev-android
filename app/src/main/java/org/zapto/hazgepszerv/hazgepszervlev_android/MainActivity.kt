@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
+import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.TabbedJobreportsFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var fragment: Fragment? = null
-        val fragmentClass: Class<*>? = null
+        var fragmentClass: Class<*>? = null
 
         val id = item.itemId
 
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.menu_home -> {
             }
             R.id.menu_jobreports -> {
-
+                fragmentClass = TabbedJobreportsFragment::class.java
             }
             R.id.menu_calendar -> {
 
