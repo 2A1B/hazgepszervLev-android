@@ -12,10 +12,12 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.app_bar_main.*
 import org.zapto.hazgepszerv.hazgepszervlev_android.MainActivity
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
+import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.OpenedJobReportFragment
 import java.util.ArrayList
 
 
 class TabbedJobreportsFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
@@ -28,9 +30,10 @@ class TabbedJobreportsFragment : Fragment() {
         mainActivity.toolbar.title = "Hibajegyek"
         mainActivity.fab.show()
 
-
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
+
         setupViewPager(viewPager)
+
         val tabs = view.findViewById<TabLayout>(R.id.jobreports)
         tabs.setupWithViewPager(viewPager)
 
@@ -39,12 +42,14 @@ class TabbedJobreportsFragment : Fragment() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = Adapter(childFragmentManager)
+        adapter.addFragment(OpenedJobReportFragment(), "Aktív")
+        adapter.addFragment(ClosedJobreportFragment(), "Lezárt")
         viewPager.adapter = adapter
     }
 
-    internal class Adapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
-        private val mFragmentList = ArrayList<Fragment>()
-        private val mFragmentTitleList = ArrayList<String>()
+    class Adapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
+        val mFragmentList:ArrayList<Fragment> = ArrayList()
+        val mFragmentTitleList:ArrayList<String> = ArrayList()
 
         override fun getItem(position: Int): Fragment {
             return mFragmentList[position]
