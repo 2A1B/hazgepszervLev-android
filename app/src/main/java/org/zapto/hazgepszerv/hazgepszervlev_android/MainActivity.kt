@@ -7,10 +7,12 @@ import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
+import org.jetbrains.anko.support.v4.drawerListener
 import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.TabbedJobreportsFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        val toggle = ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, 0, 0)
+        drawerLayout.drawerListener { toggle }
+        toggle.syncState()
 
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
