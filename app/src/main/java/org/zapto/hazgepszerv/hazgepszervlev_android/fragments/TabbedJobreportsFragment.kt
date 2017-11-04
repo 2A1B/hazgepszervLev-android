@@ -1,7 +1,6 @@
 package org.zapto.hazgepszerv.hazgepszervlev_android.fragments
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
@@ -9,10 +8,10 @@ import android.support.v4.view.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.gigamole.navigationtabstrip.NavigationTabStrip
 import kotlinx.android.synthetic.main.app_bar_main.*
 import org.zapto.hazgepszerv.hazgepszervlev_android.MainActivity
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
-import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.OpenedJobReportFragment
 import java.util.ArrayList
 
 
@@ -34,22 +33,21 @@ class TabbedJobreportsFragment : Fragment() {
 
         setupViewPager(viewPager)
 
-        val tabs = view.findViewById<TabLayout>(R.id.jobreports)
-        tabs.setupWithViewPager(viewPager)
-
+        val navigationTabStrip = view.findViewById<NavigationTabStrip>(R.id.jobreports)
+        navigationTabStrip.setTitles("Aktív","Lezárt")
+        navigationTabStrip.setViewPager(viewPager, 0)
         return view
     }
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = Adapter(childFragmentManager)
-        adapter.addFragment(OpenedJobReportFragment(), "Aktív")
-        adapter.addFragment(ClosedJobreportFragment(), "Lezárt")
+        adapter.addFragment(OpenedJobReportFragment())
+        adapter.addFragment(ClosedJobreportFragment())
         viewPager.adapter = adapter
     }
 
     class Adapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
-        val mFragmentList:ArrayList<Fragment> = ArrayList()
-        val mFragmentTitleList:ArrayList<String> = ArrayList()
+        private val mFragmentList:ArrayList<Fragment> = ArrayList()
 
         override fun getItem(position: Int): Fragment {
             return mFragmentList[position]
@@ -59,13 +57,8 @@ class TabbedJobreportsFragment : Fragment() {
             return mFragmentList.size
         }
 
-        fun addFragment(fragment: Fragment, title: String) {
+        fun addFragment(fragment: Fragment) {
             mFragmentList.add(fragment)
-            mFragmentTitleList.add(title)
-        }
-
-        override fun getPageTitle(position: Int): CharSequence {
-            return mFragmentTitleList[position]
         }
     }
 }
