@@ -10,10 +10,13 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.support.v4.drawerListener
 import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.TabbedJobreportsFragment
+import android.widget.Toast
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +45,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             username.text = user.displayName
             email.text = user.email
         }
+
+        FirebaseMessaging.getInstance().subscribeToTopic("notifications")
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
