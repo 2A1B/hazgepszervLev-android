@@ -11,17 +11,32 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:elevation="0dp">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/jobreports"
-            android:background="@color/colorPrimary"
-            app:tabTextColor="@color/white"
-            app:tabSelectedTextColor="@color/white"
-            app:tabIndicatorColor="@color/white"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:tabMode="fixed"
-            app:tabGravity="fill"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:paddingEnd="30dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingStart="30dp">
+
+            <com.gigamole.navigationtabstrip.NavigationTabStrip
+                android:id="@+id/jobreports"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:nts_color="#dc7d09"
+                app:nts_size="15sp"
+                app:nts_weight="3dp"
+                app:nts_factor="2.5"
+                app:nts_type="line"
+                app:nts_gravity="bottom"
+                app:nts_typeface="fonts/typeface.otf"
+                app:nts_corners_radius="1.5dp"
+                app:nts_animation_duration="300"
+                app:nts_active_color="#FFffffff"
+                app:nts_inactive_color="#7dffffff"/>
+        </FrameLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
