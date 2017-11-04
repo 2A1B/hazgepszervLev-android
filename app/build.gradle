@@ -1,3 +1,4 @@
+//noinspection GradleCompatible
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -29,6 +30,7 @@ dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
     compile 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.firebase:firebase-messaging:11.4.2'
     implementation 'com.google.firebase:firebase-auth:11.4.2'
     compile 'com.google.firebase:firebase-database:11.4.2'
     testImplementation 'junit:junit:4.12'
@@ -38,6 +40,7 @@ dependencies {
     compile "org.jetbrains.anko:anko:0.10.2"
     //design
     compile 'com.github.devlight.navigationtabstrip:navigationtabstrip:1.0.4'
+    compile 'com.tapadoo.android:alerter:2.0.1'
 }
 repositories {
     mavenCentral()
