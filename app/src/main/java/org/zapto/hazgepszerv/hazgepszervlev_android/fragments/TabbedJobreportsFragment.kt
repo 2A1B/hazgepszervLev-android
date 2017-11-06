@@ -27,7 +27,7 @@ class TabbedJobreportsFragment : Fragment() {
 
         val mainActivity = activity as MainActivity
         mainActivity.toolbar.title = "Hibajegyek"
-        mainActivity.fab.show()
+        mainActivity.fab.visibility = View.VISIBLE
 
         val viewPager = view.findViewById<ViewPager>(R.id.viewpager)
 
