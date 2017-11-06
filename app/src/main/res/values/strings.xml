@@ -6,4 +6,11 @@
     <string name="hibajegyek">Hibajegyek</string>
     <string name="settings">Beállítások</string>
     <string name="kilepes">Kilépés</string>
+    <string name="ujhibajegy">Új hibajegy</string>
+    <string name="ugyfelneve">Ügyfél neve</string>
+    <string name="ugyfelcime">Ügyfél címe</string>
+    <string name="ugyfelszama">Ügyfél telefonszama</string>
+    <string name="tervezettkiszallas">Tervezett kiszállás</string>
+    <string name="hibajelenseg">Hibajelenség</string>
+    <string name="hozzaadas">Hozzáadás</string>
 </resources>
