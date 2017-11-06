@@ -6,8 +6,7 @@ class JobReport(val customer_name : String,
                 val planned_delivery: String,
                 val problem_review : String,
                 val status : String,
-                val key : String,
-                val uuid : String) {
+                var uuid : String) {
 
-    constructor() : this("","","","","","","","")
+    constructor() : this("","","","","","","")
 }

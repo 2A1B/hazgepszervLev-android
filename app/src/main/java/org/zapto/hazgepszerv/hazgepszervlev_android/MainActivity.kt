@@ -12,19 +12,43 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import com.getbase.floatingactionbutton.FloatingActionButton
+import com.getbase.floatingactionbutton.FloatingActionsMenu
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.support.v4.drawerListener
 import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.TabbedJobreportsFragment
-import android.widget.Toast
 import com.google.firebase.messaging.FirebaseMessaging
+import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.NewJobReportFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    lateinit var fab : FloatingActionsMenu
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        fab = findViewById<FloatingActionsMenu>(R.id.multiple_actions)
+
+        val fabi = findViewById<View>(R.id.action_a) as FloatingActionButton
+        fabi.setSize(FloatingActionButton.SIZE_MINI);
+        fabi.setOnClickListener(View.OnClickListener {
+            var asd: Fragment? = null
+            fab.collapseImmediately()
+            try {
+                asd = NewJobReportFragment::class.java.newInstance()
+            } catch (e: InstantiationException) {
+                e.printStackTrace()
+            } catch (e: IllegalAccessException) {
+                e.printStackTrace()
+            }
+
+            val fragmentManager = supportFragmentManager
+            fragmentManager.beginTransaction().replace(R.id.flContent, asd).commit()
+        })
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
         val toggle = ActionBarDrawerToggle(

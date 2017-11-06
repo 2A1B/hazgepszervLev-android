@@ -49,6 +49,9 @@ class OpenedJobReportFragment : Fragment() , RecyclerItemTouchAdapter.RecyclerIt
                 }
             }
         })
+        Log.d("OpenedJobReportFragment","HELLOOOOOO")
+        Log.d("OpenedJobReportFragment", Integer.toString(jobReports.size))
+
 
         val itemTouchHelperCallback = RecyclerItemTouchAdapter(0, ItemTouchHelper.RIGHT, this)
         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView)
@@ -72,10 +75,10 @@ class OpenedJobReportFragment : Fragment() , RecyclerItemTouchAdapter.RecyclerIt
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
-        updateJobReport(position, "closed")
+        updateJobReportStatus(position)
     }
 
-    private fun updateJobReport(position: Int, newStatus: String) {
-        ref.child(jobReports[position].key).child("status").setValue("closed")
+    private fun updateJobReportStatus(position: Int) {
+        ref.child(jobReports[position].uuid).child("status").setValue("closed")
     }
 }// Required empty public constructor
