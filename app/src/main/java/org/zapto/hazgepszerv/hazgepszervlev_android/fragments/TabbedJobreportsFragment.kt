@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.gigamole.navigationtabstrip.NavigationTabStrip
 import kotlinx.android.synthetic.main.app_bar_main.*
-import org.zapto.hazgepszerv.hazgepszervlev_android.MainActivity
+import org.zapto.hazgepszerv.hazgepszervlev_android.activities.MainActivity
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
 import java.util.ArrayList
 

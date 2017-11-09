@@ -1,4 +1,4 @@
-package org.zapto.hazgepszerv.hazgepszervlev_android
+package org.zapto.hazgepszerv.hazgepszervlev_android.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.indeterminateProgressDialog
 import kotlinx.android.synthetic.main.activity_login.*
+import org.zapto.hazgepszerv.hazgepszervlev_android.R
 
 class LoginActivity : AppCompatActivity() {
     private var fbAuth = FirebaseAuth.getInstance()!!

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-    tools:context="org.zapto.hazgepszerv.hazgepszervlev_android.MainActivity">
+    tools:context="org.zapto.hazgepszerv.hazgepszervlev_android.activities.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/toolbar_gradient"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     </android.support.design.widget.AppBarLayout>

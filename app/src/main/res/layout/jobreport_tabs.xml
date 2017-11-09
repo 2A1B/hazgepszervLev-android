@@ -8,14 +8,14 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@drawable/toolbar_gradient"
         app:elevation="0dp">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/toolbar_gradient"
             android:paddingEnd="30dp"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
@@ -31,7 +31,6 @@
                 app:nts_factor="2.5"
                 app:nts_type="line"
                 app:nts_gravity="bottom"
-                app:nts_typeface="fonts/typeface.otf"
                 app:nts_corners_radius="1.5dp"
                 app:nts_animation_duration="300"
                 app:nts_active_color="#FFffffff"

@@ -1,0 +1,32 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="idfgdfgd"
+        android:inputType="textCapWords"
+        android:key="user_name_pref"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_display_name" />
+
+    <EditTextPreference
+        android:defaultValue="i"
+        android:key="user_email_pref"
+        android:enabled="false"
+        android:title="@string/pref_email"/>
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="idfgdfgd"
+        android:inputType="phone"
+        android:key="user_phone_pref"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_phone" />
+
+    <Preference
+        android:title="@string/change_password_pref"
+        android:key="sendPassWordEmail"/>
+</PreferenceScreen>
