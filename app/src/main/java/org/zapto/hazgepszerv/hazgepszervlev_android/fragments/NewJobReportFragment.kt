@@ -8,10 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import com.github.florent37.androidslidr.Slidr
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.app_bar_main.*
-import org.zapto.hazgepszerv.hazgepszervlev_android.MainActivity
+import org.zapto.hazgepszerv.hazgepszervlev_android.activities.MainActivity
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
 import android.app.DatePickerDialog
 import java.util.*
@@ -60,11 +59,11 @@ class NewJobReportFragment : Fragment(), View.OnClickListener {
 
         hozzaad.setOnClickListener { addReport() }
 
-        val slidr = view.findViewById<Slidr>(R.id.munkahossza)
+        /*val slidr = view.findViewById<Slidr>(R.id.munkahossza)
         slidr.max = 120f
         slidr.setTextMin("perc")
         slidr.setTextMax("perc")
-        slidr.setTextFormatter({ value -> value.toInt().toString() })
+        slidr.setTextFormatter({ value -> value.toInt().toString() })*/
 
         tervezett_kiszallas.setOnClickListener(this)
 
