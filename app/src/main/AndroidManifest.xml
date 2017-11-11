@@ -24,8 +24,7 @@
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
-            android:theme="@style/SettingsTheme"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:theme="@style/SettingsTheme"/>
 
         <service android:name=".service.FCMService">
             <intent-filter>

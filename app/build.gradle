@@ -48,6 +48,7 @@ dependencies {
     compile 'com.github.florent37:android-slidr:1.0.3'
     compile 'ru.egslava:MaskedEditText:1.0.5'
     compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'com.github.alamkanak:android-week-view:1.2.6'
 }
 repositories {
     mavenCentral()

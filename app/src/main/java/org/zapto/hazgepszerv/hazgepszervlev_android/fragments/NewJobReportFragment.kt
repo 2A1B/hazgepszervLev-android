@@ -28,6 +28,7 @@ class NewJobReportFragment : Fragment(), View.OnClickListener {
     lateinit var tervezett_kiszallas:EditText
     lateinit var hibajelenseg:EditText
     lateinit var hozzaad: Button
+    var time : String? = null
 
     lateinit var date_time : String
 
@@ -57,6 +58,10 @@ class NewJobReportFragment : Fragment(), View.OnClickListener {
         hibajelenseg = view.findViewById<View>(R.id.hibajelenseg) as EditText
         hozzaad = view.findViewById<Button>(R.id.button_add_report)
 
+        if (time != " "){
+            tervezett_kiszallas.setText(time)
+        }
+
         hozzaad.setOnClickListener { addReport() }
 
         /*val slidr = view.findViewById<Slidr>(R.id.munkahossza)
@@ -73,12 +78,20 @@ class NewJobReportFragment : Fragment(), View.OnClickListener {
     private fun datePicker() {
         val c = Calendar.getInstance()
         val mYear = c.get(Calendar.YEAR)
-        val mMonth = c.get(Calendar.MONTH)
-        val mDay = c.get(Calendar.DAY_OF_MONTH)
+        var mMonth = c.get(Calendar.MONTH)
+        var mDay = c.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(context,
                 OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    date_time = year.toString() + "-" + (monthOfYear + 1) + "-" + dayOfMonth.toString()
+                    var formattedMonth : String = (monthOfYear+1).toString()
+                    if(monthOfYear < 10){
+                        formattedMonth = "0" + (monthOfYear + 1)
+                    }
+                    var formattedDayOfMonth : String = dayOfMonth.toString()
+                    if(dayOfMonth < 10){
+                        formattedDayOfMonth = "0" + dayOfMonth
+                    }
+                    date_time = year.toString() + "-" + formattedMonth + "-" + formattedDayOfMonth
                     timePicker()
                 }, mYear, mMonth, mDay)
         datePickerDialog.show()
@@ -93,7 +106,16 @@ class NewJobReportFragment : Fragment(), View.OnClickListener {
                 TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
                     mHour = hourOfDay
                     mMinute = minute
-                    tervezett_kiszallas.setText(date_time + " " + hourOfDay + ":" + minute)
+
+                    var formattedHour : String = mHour.toString()
+                    if(mHour < 10){
+                        formattedHour = "0" + mHour
+                    }
+                    var formattedMinute : String = mMinute.toString()
+                    if(mMinute < 10){
+                        formattedMinute = "0" + mMinute
+                    }
+                    tervezett_kiszallas.setText(date_time + " " + formattedHour + ":" + formattedMinute)
                 }, mHour, mMinute, false)
         timePickerDialog.show()
     }
@@ -102,17 +124,15 @@ class NewJobReportFragment : Fragment(), View.OnClickListener {
         val database = FirebaseDatabase.getInstance()
         val reference = database.getReference("jobreports")
 
-        val jobreport : JobReport = JobReport(ugyfel_neve.text.toString(),
+        val newItem = reference.push()
+
+        val jobreport = JobReport(ugyfel_neve.text.toString(),
                                               ugyfel_cime.text.toString(),
                                               ugyfel_szama.text.toString(),
                                               tervezett_kiszallas.text.toString(),
                                               hibajelenseg.text.toString(),
                                               "open",
-                                              "")
-
-        val newItem = reference.push()
-
-        jobreport.uuid = newItem.key
+                                              newItem.key)
 
         newItem.setValue(jobreport)
 
