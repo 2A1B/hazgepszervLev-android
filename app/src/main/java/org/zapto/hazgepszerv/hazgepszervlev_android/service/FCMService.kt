@@ -39,7 +39,7 @@ class FCMService : FirebaseMessagingService() {
             notificationBody = remoteMessage.notification.body
         }
 
-        if(notificationEnabled == true) {
+        if(notificationEnabled) {
             if (applicationInForeground()) {
                 if(inAppNotificationEnabled) {
                     val intent = Intent("myFunction")
