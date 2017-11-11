@@ -82,7 +82,7 @@ abstract class BaseCalendarFragment : Fragment(), WeekView.EventClickListener, M
         val asd = NewJobReportFragment::class.java.newInstance()
         asd.time = date1
         val fragmentManager = fragmentManager
-        fragmentManager.beginTransaction().replace(R.id.flContent, asd).commit()
+        fragmentManager.beginTransaction().replace(R.id.flContent, asd).addToBackStack(asd.toString()).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
