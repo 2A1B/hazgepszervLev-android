@@ -11,8 +11,12 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
 import org.zapto.hazgepszerv.hazgepszervlev_android.model.JobReport
+import org.zapto.hazgepszerv.hazgepszervlev_android.utils.DateTimeFormatter
+import java.util.*
 
 class JobReportAdapter(val jobreports : ArrayList<JobReport>) : RecyclerView.Adapter<JobReportAdapter.ViewHolder>() {
+
+    private val dateTimeFormatter : DateTimeFormatter = DateTimeFormatter()
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val jobreport : JobReport = jobreports[position]
@@ -20,7 +24,8 @@ class JobReportAdapter(val jobreports : ArrayList<JobReport>) : RecyclerView.Ada
         holder?.customer_name?.text = jobreport.customer_name
         holder?.customer_address?.text = jobreport.customer_address
         holder?.customer_phone?.text = jobreport.customer_phone
-        holder?.timestamp?.text = jobreport.planned_delivery
+        holder?.timestamp?.text = dateTimeFormatter.getTime(jobreport.planned_delivery)
+        holder?.datestamp?.text = dateTimeFormatter.getDate(jobreport.planned_delivery)
         holder?.iconText?.text = jobreport.customer_name.substring(0,1)
         applyProfilePicture(holder!!, jobreport)
     }
@@ -39,6 +44,7 @@ class JobReportAdapter(val jobreports : ArrayList<JobReport>) : RecyclerView.Ada
         val customer_address = itemView.findViewById<TextView>(R.id.customer_address)
         val customer_phone = itemView.findViewById<TextView>(R.id.customer_phone)
         val timestamp = itemView.findViewById<TextView>(R.id.timestamp) as TextView
+        val datestamp = itemView.findViewById<TextView>(R.id.datestamp) as TextView
         val messageContainer = itemView.findViewById<LinearLayout>(R.id.message_container)
         val iconText = itemView.findViewById<TextView>(R.id.icon_text)
         val iconContainer = itemView.findViewById<RelativeLayout>(R.id.icon_container)
