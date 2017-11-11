@@ -22,6 +22,7 @@ import com.tapadoo.alerter.Alerter
 import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.NewJobReportFragment
 import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.preference.PreferenceManager
+import android.util.Log
 import android.view.Menu
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             val fragmentManager = supportFragmentManager
-            fragmentManager.beginTransaction().replace(R.id.flContent, asd).commit()
+            fragmentManager.beginTransaction().replace(R.id.flContent, asd).addToBackStack(asd.toString()).commit()
         })
 
         val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -130,8 +131,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 e.printStackTrace()
             }
 
-            val fragmentManager = supportFragmentManager
-            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.flContent, fragment).addToBackStack(fragment.toString()).commit()
         }
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -170,5 +170,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return true
+    }
+
+    override fun onBackPressed() {
+        val fm = fragmentManager
+        if (fm.backStackEntryCount > 1) {
+            Log.i("MainActivity", "popping backstack")
+            fm.popBackStack()
+        } else {
+            Log.i("MainActivity", "nothing on backstack, calling super")
+            super.onBackPressed()
+        }
     }
 }
