@@ -22,12 +22,11 @@ import com.tapadoo.alerter.Alerter
 import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.NewJobReportFragment
 import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.preference.PreferenceManager
-import android.util.Log
+import android.view.Menu
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
-import android.R.id.edit
-import android.content.SharedPreferences.Editor
 import com.google.firebase.auth.UserProfileChangeRequest
-
+import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.AsynchronousCalendar
+import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.BaseCalendarFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -48,7 +47,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         editor.commit()
 
         val userNamePref = sharedPreferences.getString("user_name_pref","")
-        val userPhonePref = sharedPreferences.getString("user_phone_pref","")
 
         val profileUpdates = UserProfileChangeRequest.Builder().setDisplayName(userNamePref).build()
 
@@ -110,6 +108,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 fragmentClass = TabbedJobreportsFragment::class.java
             }
             R.id.menu_calendar -> {
+                fragmentClass = AsynchronousCalendar::class.java
             }
             R.id.settings -> {
                 val intent = Intent(this, SettingsActivity::class.java)
@@ -167,5 +166,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     public override fun onPause() {
         super.onPause()
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        return true
     }
 }
