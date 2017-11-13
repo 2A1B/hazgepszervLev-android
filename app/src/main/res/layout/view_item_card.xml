@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/card_customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="12dp"
+                android:layout_toEndOf="@+id/button2"
+                android:textSize="17sp"
+                android:fontFamily="@string/font_family_medium"
+                android:textColor="@color/black"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/card_customer_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/card_customer_name"
+                android:layout_below="@+id/card_customer_name"
+                android:textSize="10sp"
+                android:fontFamily="@string/font_family_regular"
+                android:textColor="@color/black"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/card_planned_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_hour"
+                android:gravity="center_vertical"
+                android:drawablePadding="2dp"
+                android:layout_alignStart="@+id/card_customer_address"
+                android:layout_below="@+id/card_customer_address"
+                android:textSize="10sp"
+                android:fontFamily="@string/font_family_regular"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/card_problem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/card_planned_delivery"
+                android:layout_below="@+id/card_planned_delivery"
+                android:text="TextView"
+                android:textSize="10sp"
+                android:fontFamily="@string/font_family_regular"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

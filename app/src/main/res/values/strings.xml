@@ -83,4 +83,7 @@
     <string name="action_day_view">NAPI</string>
     <string name="action_three_day_view">3 NAPI</string>
     <string name="action_week_view">HETI</string>
+    <string name="onthisday">Események a mai napon</string>
+    <string name="allbutton">ÖSSZES</string>
+    <string name="no_planned">Sajnos nincs tervezett esemény.</string>
 </resources>

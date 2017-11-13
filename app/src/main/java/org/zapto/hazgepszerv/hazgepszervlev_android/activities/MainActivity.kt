@@ -16,18 +16,15 @@ import com.getbase.floatingactionbutton.FloatingActionButton
 import com.getbase.floatingactionbutton.FloatingActionsMenu
 import com.google.firebase.auth.FirebaseAuth
 import org.jetbrains.anko.support.v4.drawerListener
-import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.TabbedJobreportsFragment
 import com.google.firebase.messaging.FirebaseMessaging
 import com.tapadoo.alerter.Alerter
-import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.NewJobReportFragment
 import android.support.v4.content.LocalBroadcastManager
 import android.support.v7.preference.PreferenceManager
 import android.util.Log
 import android.view.Menu
 import org.zapto.hazgepszerv.hazgepszervlev_android.R
 import com.google.firebase.auth.UserProfileChangeRequest
-import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.AsynchronousCalendar
-import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.BaseCalendarFragment
+import org.zapto.hazgepszerv.hazgepszervlev_android.fragments.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -94,6 +91,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         FirebaseMessaging.getInstance().subscribeToTopic("notifications")
+
+        navigationView.setCheckedItem(R.id.menu_home)
+        val item = navigationView.menu.getItem(0)
+        onNavigationItemSelected(item)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -104,6 +105,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when (id) {
             R.id.menu_home -> {
+                fragmentClass = HomeScreenFragment::class.java
             }
             R.id.menu_jobreports -> {
                 fragmentClass = TabbedJobreportsFragment::class.java
@@ -131,7 +133,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 e.printStackTrace()
             }
 
-            supportFragmentManager.beginTransaction().replace(R.id.flContent, fragment).addToBackStack(fragment.toString()).commit()
+            val manager = supportFragmentManager
+            manager.beginTransaction().replace(R.id.flContent, fragment).addToBackStack(fragment.toString()).commit()
+
         }
 
         val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
@@ -173,8 +177,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        val fm = fragmentManager
-        if (fm.backStackEntryCount > 1) {
+        val fm = supportFragmentManager
+        println("Entry Count: " + fm.backStackEntryCount)
+        if (fm.backStackEntryCount > 0) {
             Log.i("MainActivity", "popping backstack")
             fm.popBackStack()
         } else {

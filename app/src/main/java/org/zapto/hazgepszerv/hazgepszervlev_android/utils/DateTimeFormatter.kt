@@ -8,6 +8,7 @@ import java.util.*
 class DateTimeFormatter {
 
     val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm")
+    val ddf = SimpleDateFormat("MMM dd")
 
     fun getFullDate(delivery: String) : Date {
         var date = Date()
