@@ -52,6 +52,8 @@ abstract class BaseCalendarFragment : Fragment(), WeekView.EventClickListener, M
         calendar.eventLongPressListener = this
         calendar.emptyViewLongPressListener = this
 
+        calendar.goToHour(7.0)
+
         setHasOptionsMenu(true)
 
         return rootView
