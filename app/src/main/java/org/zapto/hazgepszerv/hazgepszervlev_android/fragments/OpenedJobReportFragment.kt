@@ -33,6 +33,8 @@ class OpenedJobReportFragment : Fragment() , RecyclerItemTouchAdapter.RecyclerIt
 
         ref = FirebaseDatabase.getInstance().getReference("jobreports")
 
+        ref.keepSynced(true)
+
         ref.orderByChild("status").equalTo("open").addValueEventListener( object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError?) {
             }
@@ -49,9 +51,6 @@ class OpenedJobReportFragment : Fragment() , RecyclerItemTouchAdapter.RecyclerIt
                 }
             }
         })
-        Log.d("OpenedJobReportFragment","HELLOOOOOO")
-        Log.d("OpenedJobReportFragment", Integer.toString(jobReports.size))
-
 
         val itemTouchHelperCallback = RecyclerItemTouchAdapter(0, ItemTouchHelper.RIGHT, this)
         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView)
