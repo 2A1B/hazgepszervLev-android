@@ -87,15 +87,6 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/icon_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fillAfter="false"
-                android:fillEnabled="false">
-
-            </RelativeLayout>
-
-            <RelativeLayout
                 android:id="@+id/icon_front"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,17 +94,16 @@
                 android:fillEnabled="false">
 
                 <ImageView
+                    android:id="@+id/icon_profile_background"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <ImageView
                     android:id="@+id/icon_profile"
                     android:layout_width="40dp"
-                    android:layout_height="40dp" />
-
-                <TextView
-                    android:id="@+id/icon_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:textColor="@android:color/white"
-                    android:textSize="22dp" />
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="6dp" />
             </RelativeLayout>
 
         </RelativeLayout>

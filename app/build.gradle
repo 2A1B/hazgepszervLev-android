@@ -49,6 +49,8 @@ dependencies {
     compile 'ru.egslava:MaskedEditText:1.0.5'
     compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'com.github.alamkanak:android-week-view:1.2.6'
+    compile 'com.google.android:flexbox:0.2.5'
+    compile 'com.github.fiskurgit:ChipCloud:3.0.5'
 }
 repositories {
     mavenCentral()

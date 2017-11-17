@@ -42,7 +42,7 @@ class ClosedJobreportFragment : Fragment() {
                         val jobreport = j.getValue(JobReport::class.java)
                         jobReports.add(jobreport!!)
                     }
-                    val adapter = JobReportAdapter(jobReports)
+                    val adapter = JobReportAdapter(jobReports, context)
                     recycleView.adapter = adapter
                 }
             }
