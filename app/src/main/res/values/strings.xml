@@ -7,10 +7,10 @@
     <string name="settings">Beállítások</string>
     <string name="kilepes">Kilépés</string>
     <string name="ujhibajegy">Új hibajegy</string>
-    <string name="ugyfelneve">Ügyfél neve</string>
-    <string name="ugyfelcime">Ügyfél címe</string>
-    <string name="ugyfelszama">Ügyfél telefonszama</string>
-    <string name="tervezettkiszallas">Tervezett kiszállás</string>
+    <string name="ugyfelneve">név</string>
+    <string name="ugyfelcime">cím</string>
+    <string name="ugyfelszama">telefonszám</string>
+    <string name="tervezettkiszallas">kiszállás</string>
     <string name="hibajelenseg">Hibajelenség</string>
     <string name="hozzaadas">Hozzáadás</string>
     <string name="title_activity_settings">Settings</string>
@@ -79,11 +79,31 @@
     <string name="pref_email">E-mail</string>
     <string name="pref_phone">Telefonszám</string>
     <string name="change_password_pref">Jelszó megváltoztatása</string>
+
     <string name="action_today">MA</string>
     <string name="action_day_view">NAPI</string>
     <string name="action_three_day_view">3 NAPI</string>
     <string name="action_week_view">HETI</string>
+
     <string name="onthisday">Események a mai napon</string>
     <string name="allbutton">ÖSSZES</string>
     <string name="no_planned">Sajnos nincs tervezett esemény.</string>
+
+    <string name="ugyfel_neve_hint">
+        <font size="15">Példa Kálmán</font>
+    </string>
+    <string name="ugyfel_cime_hint">
+        <font size="15">4024, Debrecen Fő utca 58.</font>
+    </string>
+    <string name="hibajelenseg_hint">
+        <font size="15">Nem mos a mosógép.</font>
+    </string>
+    <string name="kiszallas_hint">
+        <font size="15">2017.12.23</font>
+    </string>
+
+    <string name="szerviz">szerviz</string>
+    <string name="helyszini">helyszíni</string>
+    <string name="allapotfelmeres">felmérés</string>
+    <string name="valami_mas">más</string>
 </resources>
